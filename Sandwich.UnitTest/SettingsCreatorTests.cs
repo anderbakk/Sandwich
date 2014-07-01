@@ -28,27 +28,4 @@ namespace Sandwich.UnitTest
         }
     }
 
-    [TestFixture]
-    public class ConverterTests
-    {
-        [Test]
-        public void LongConverterTest()
-        {
-            var longConverter = new LongConverter();
-            var result = longConverter.Convert("1");
-
-            result.Should().Be(1);
-        }
-
-        [Test]
-        public void MaxValue()
-        {
-            var maxLong = long.MaxValue.ToString();
-            var longConverter = new LongConverter();
-            var result = longConverter.Convert(maxLong);
-
-            result.Should().Be(long.MaxValue);
-
-        }
-    }
 }
