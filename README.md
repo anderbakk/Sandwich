@@ -7,14 +7,14 @@ This allows your application to become more testable since it does not depend up
 
 ##Example
 You have the following settings defined in app.config:
-  <appSettings>
-    <add key="Version" value="1.0"/>
-    <add key="ReleaseDate" value="2014-07-01"/>
-    <add key="EnableThisFeature" value="true"/>
-    <add key="MaxNumberOfUsers" value="15"/>
-    <add key="DefaultRate" value="13.37"/>
-    <add key="AvailableCultures" value="nb-NO,en-US"/>
-  </appSettings> 
+  &lt;appSettings&gt;
+    &lt;add key="Version" value="1.0"/&gt;
+    &lt;add key="ReleaseDate" value="2014-07-01"/&gt;
+    &lt;add key="EnableThisFeature" value="true"/&gt;
+    &lt;add key="MaxNumberOfUsers" value="15"/&gt;
+    &lt;add key="DefaultRate" value="13.37"/&gt;
+    &lt;add key="AvailableCultures" value="nb-NO,en-US"/&gt;
+  &lt;/appSettings&gt; 
 
 Using settingsCreator.Create<MySettings>() will create an instance of MySettings with all matching properties filled.
 
