@@ -1,3 +1,5 @@
+using System;
+
 namespace Sandwich.Core.ValueConverters
 {
     public class ValueConverterFacade
@@ -7,6 +9,13 @@ namespace Sandwich.Core.ValueConverters
         public ValueConverterFacade(ConverterFactory factory)
         {
             _factory = factory;
+        }
+
+        public object ConvertValue(string value, Type type)
+        {
+            var converter = _factory.GetConverter(type);
+
+            return converter == null ? Activator.CreateInstance(type) : converter.Convert(value);
         }
 
         public T ConvertValue<T>(string value)

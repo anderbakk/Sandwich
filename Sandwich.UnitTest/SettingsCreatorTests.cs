@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using FluentAssertions;
 using NUnit.Framework;
 using Sandwich.Core;
@@ -9,22 +10,44 @@ namespace Sandwich.UnitTest
     [TestFixture]
     public class SettingsCreatorTests
     {
+        private SettingsCreator _creator;
+
         public class MyTestSettings
         {
-            public string Version { get; set; }
+            public string StringValue { get; set; }
+            public DateTime? NullableDateTime { get; set; }
+            public DateTime DateTime { get; set; }
+            public int Integer { get; set; }
+            public int? NullableInteger { get; set; }
+            public long Long { get; set; }
+            public long? NullableLong { get; set; }
+        }
+
+        [TestFixtureSetUp]
+        public void Setup()
+        {
+            _creator = new SettingsCreator(new ValueConverterFacade(new ConverterFactory(DefaultValueConverters.Get())));
         }
 
         [Test]
-        public void Test()
+        public void Create_NullArgument_ReturnEmptySettings()
         {
-            var creator = new SettingsCreator();
+            var settings = _creator.Create<MyTestSettings>(null);
 
-            var settings = creator.Create<MyTestSettings>(new List<KeyValuePair<string, string>>
+            settings.StringValue.Should().BeNull();
+            settings.NullableDateTime.Should().Be(null);
+            settings.DateTime.Should().Be(DateTime.MinValue);
+        }
+
+        [Test]
+        public void Create_EmptyArgumentList_ReturnEmptySettings()
+        {
+            var settings = _creator.Create<MyTestSettings>(new List<KeyValuePair<string, string>>
             {
-                new KeyValuePair<string, string>("Version", "1")
+                new KeyValuePair<string, string>("StringValue", "1")
             });
 
-            settings.Version.Should().Be("1");
+            settings.StringValue.Should().Be("1");
         }
     }
 
