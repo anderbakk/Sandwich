@@ -1,8 +1,12 @@
 using System;
+using System.Globalization;
+using Sandwich.Core.Exceptions;
+using Sandwich.Core.Interface;
 
 namespace Sandwich.Core.ValueConverters
 {
-    public class ValueConverterFacade
+
+    public class ValueConverterFacade : IConvertValues
     {
         private readonly ConverterFactory _factory;
 
@@ -13,18 +17,23 @@ namespace Sandwich.Core.ValueConverters
 
         public object ConvertValue(string value, Type type)
         {
+            return Convert(value, type);
+        }
+
+        private object Convert(string value, Type type)
+        {
             var converter = _factory.GetConverter(type);
 
-            return converter == null ? Activator.CreateInstance(type) : converter.Convert(value);
+            if (converter == null)
+                throw new ValueConversionNotSupportedException(string.Format("Could not find a converter for type {0}",
+                    type));
+
+            return converter.Convert(value);
         }
 
         public T ConvertValue<T>(string value)
         {
-            var converter = _factory.GetConverter(typeof(T));
-
-            if (converter == null)
-                return default (T);
-            return (T) converter.Convert(value);
+            return (T) Convert(value, typeof (T));
         }
     }
 }

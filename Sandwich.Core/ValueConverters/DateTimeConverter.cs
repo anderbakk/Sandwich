@@ -1,32 +1,16 @@
 using System;
-using System.Collections.Generic;
-using Sandwich.Core.Interface;
 
 namespace Sandwich.Core.ValueConverters
 {
-    public class DateTimeConverter : IValueConverter
+    public class DateTimeConverter : NullableTypeConverterBase<DateTime, DateTime?>
     {
-        private readonly IFormatProvider _formatProvider;
-
-        public DateTimeConverter(IFormatProvider formatProvider)
+        public DateTimeConverter(IFormatProvider formatProvider) : base(formatProvider)
         {
-            _formatProvider = formatProvider;
         }
 
-        public object Convert(string value)
+        protected override object InternalConvert(string value)
         {
-            return DateTime.Parse(value, _formatProvider);
-        }
-
-        public IEnumerable<Type> SupportedTypes
-        {
-            get
-            {
-                return new List<Type>
-                {
-                    typeof (DateTime)
-                };
-            }
+            return DateTime.Parse(value, FormatProvider);
         }
     }
 }

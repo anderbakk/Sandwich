@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandwich.UnitTest", "Sandwi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandwich.Core", "Sandwich.Core\Sandwich.Core.csproj", "{F594D3CA-6E86-49AA-8DCF-A5CD833BC0DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandwich.AppSettingsProvider", "Sandwich.AppSettingsProvider\Sandwich.AppSettingsProvider.csproj", "{CBF1ED9A-4E15-4A6E-B058-5C30CD63D3B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandwich.IntegrationTest", "Sandwich.IntegrationTest\Sandwich.IntegrationTest.csproj", "{A94F1E27-C864-4391-9B72-F05802AD4A7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{F594D3CA-6E86-49AA-8DCF-A5CD833BC0DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F594D3CA-6E86-49AA-8DCF-A5CD833BC0DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F594D3CA-6E86-49AA-8DCF-A5CD833BC0DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF1ED9A-4E15-4A6E-B058-5C30CD63D3B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF1ED9A-4E15-4A6E-B058-5C30CD63D3B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF1ED9A-4E15-4A6E-B058-5C30CD63D3B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF1ED9A-4E15-4A6E-B058-5C30CD63D3B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A94F1E27-C864-4391-9B72-F05802AD4A7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A94F1E27-C864-4391-9B72-F05802AD4A7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A94F1E27-C864-4391-9B72-F05802AD4A7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A94F1E27-C864-4391-9B72-F05802AD4A7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
